@@ -69,6 +69,8 @@ int main(void)
 
         printf("\n");
     }
+    
+    free(arr2d_2);
 
     return 0;
 }
