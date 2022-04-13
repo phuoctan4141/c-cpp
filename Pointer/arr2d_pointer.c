@@ -35,12 +35,15 @@ int main(void)
         printf("\n");
     }
 
+    // Giai phong bo nho
     for (int i = 0; i < col_1; i++)
     {
         free(arr2d_1[i]);
     }
 
     free(arr2d_1);
+
+    // Khai bao 2d tren 1d
 
     int row_2 = 3;
     int col_2 = 5;
@@ -69,7 +72,7 @@ int main(void)
 
         printf("\n");
     }
-    
+
     free(arr2d_2);
 
     return 0;
