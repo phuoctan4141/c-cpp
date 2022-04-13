@@ -160,11 +160,33 @@ free(arr);
 
 #### Khai báo mảng một chiều với con trỏ bằng C++
 
+1. Cú pháp khai báo:
+
 ```cpp
 int n = 5;
 int *arr;
 
 arr = new int[n];
 ```
+
+2. Giải phóng bộ nhớ:
+
+```cpp
+delete[] arr;
+```
+
+3. So sánh giữa malloc và new:
+
+| | malloc | new |
+| --- | --- | --- |
+| Ngôn ngữ | C | C++ |
+| Kích thước cấp phát | phải tính toán kích thước vùng nhớ cần cấp phát trước khi gọi | tự động tính toán kích thước vùng nhớ cần cấp phát dựa vào kiểu dữ liệu truyền vào |
+| Cấp phát thất bại | trả về con trỏ NULL | throw exception |
+| Cấp phát thành công | trả về con trỏ void* và muốn sử dụng phải ép kiểu về kiểu cần dùng | gọi hàm khởi tạo của đối tượng được cấp phát nếu đó là, kiểu con trỏ là kiểu của đối tượng được cấp phát |
+| Loại đối tượng | hàm | toán tử (operator) |
+| Khả năng override | không thể | có thể |
+| Thay đổi kích thước vùng nhớ cấp phát | có thể sử dụng realloc để thay đổi kích thước vùng nhớ được cấp phát | không thể thay đổi |
+| Giải phóng bộ nhớ | free(x) | delete x |
+| --- | --- | --- |
 
 
