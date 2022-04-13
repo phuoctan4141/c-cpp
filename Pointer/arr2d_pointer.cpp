@@ -56,5 +56,32 @@ int main()
 
     cout << "okela" << endl;
 
+    // 2d tren 1d
+
+    int p_row = 3;
+    int p_col = 5;
+
+    int *p_arr2d = new int[p_row * p_col];
+
+    for (int col = 0; col < p_col; col++)
+    {
+        for (int row = 0; row < p_row; row++)
+        {
+            p_arr2d[col * p_row + row] = col + row;
+        }
+    }
+
+    cout << "Cac phan tu trong p_arr2d " << endl;
+
+    for (int row = 0; row < p_row; row++)
+    {
+        for (int col = 0; col < p_col; col++)
+        {
+            cout << p_arr2d[col * p_row + row];
+        }
+
+        cout << endl;
+    }
+
     return 0;
 }
