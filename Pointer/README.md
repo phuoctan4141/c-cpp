@@ -283,6 +283,15 @@ Chạy tệp tin sau: [arr_pointer.cpp](https://github.com/phuoctan4141/c-cpp/bl
 
 ### Mảng hai chiều
 
+#### Bản chất
+
+| | Col 1 | Col 2 | Col 3 | Col 4 |
+| --- | --- | --- | --- | --- |
+| Row 1 | [0][0] | [0][1] | [0][2] | [0][3] |
+| Row 2 | [1][0] | [1][1] | [1][2] | [1][3] |
+| Row 3 | [2][0] | [2][1] | [2][2] | [2][3] |
+| --- | --- | --- | --- | --- |
+
 #### Khai báo và giải phóng trên C:
 
 ```c
@@ -366,6 +375,8 @@ int main(void)
     return 0;
 }
 ```
+
+Chạy tệp tin sau: [arr2d_pointer.c](https://github.com/phuoctan4141/c-cpp/blob/main/Pointer/arr2d_pointer.c)
 
 #### Khai báo và giải phóng trên C++:
 
@@ -460,3 +471,5 @@ int main()
     return 0;
 }
 ```
+
+Chạy tệp tin sau: [arr2d_pointer.cpp](https://github.com/phuoctan4141/c-cpp/blob/main/Pointer/arr2d_pointer.cpp)
