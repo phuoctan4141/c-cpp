@@ -292,7 +292,7 @@ Chạy tệp tin sau: [arr_pointer.cpp](https://github.com/phuoctan4141/c-cpp/bl
 | Row 3 | [2][0] | [2][1] | [2][2] | [2][3] |
 | --- | --- | --- | --- | --- |
 
-#### Khai báo và giải phóng trên C:
+#### Khai báo và giải phóng trên C
 
 ```c
 #include <stdio.h>
@@ -378,7 +378,7 @@ int main(void)
 
 Chạy tệp tin sau: [arr2d_pointer.c](https://github.com/phuoctan4141/c-cpp/blob/main/Pointer/arr2d_pointer.c)
 
-#### Khai báo và giải phóng trên C++:
+#### Khai báo và giải phóng trên C++
 
 ```cpp
 #include <iostream>
