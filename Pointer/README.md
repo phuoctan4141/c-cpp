@@ -281,3 +281,182 @@ int main()
 
 Chạy tệp tin sau: [arr_pointer.cpp](https://github.com/phuoctan4141/c-cpp/blob/main/Pointer/arr_pointer.cpp)
 
+### Mảng hai chiều
+
+#### Khai báo và giải phóng trên C:
+
+```c
+#include <stdio.h>
+#include <cstdlib>
+
+int main(void)
+{
+    int row_1 = 3;
+    int col_1 = 5;
+
+    int **arr2d_1;
+
+    arr2d_1 = (int **)malloc(sizeof(int *) * col_1);
+
+    for (int i = 0; i < col_1; i++)
+    {
+        arr2d_1[i] = (int *)malloc(sizeof(int) * row_1);
+    }
+
+    for (int row = 0; row < row_1; row++)
+    {
+        for (int col = 0; col < col_1; col++)
+        {
+            arr2d_1[row][col] = row + col;
+        }
+    }
+
+    printf("Cac phan tu trong arr2d_1 \n");
+
+    for (int row = 0; row < row_1; row++)
+    {
+        for (int col = 0; col < col_1; col++)
+        {
+            printf("%d ", arr2d_1[row][col]);
+        }
+
+        printf("\n");
+    }
+
+    // Giai phong bo nho
+    for (int i = 0; i < col_1; i++)
+    {
+        free(arr2d_1[i]);
+    }
+
+    free(arr2d_1);
+
+    // Khai bao 2d tren 1d
+
+    int row_2 = 3;
+    int col_2 = 5;
+
+    int *arr2d_2;
+
+    arr2d_2 = (int *)malloc(sizeof(int) * row_2 * col_2);
+
+    for (int col = 0; col < col_2; col++)
+    {
+        for (int row = 0; row < row_2; row++)
+        {
+            arr2d_2[col * row_2 + row] = col + row;
+        }
+    }
+
+    printf("Cac phan tu trong arr2d_2 \n");
+
+    for (int row = 0; row < row_2; row++)
+    {
+        for (int col = 0; col < col_2; col++)
+        {
+
+            printf("%d ", arr2d_2[col * row_2 + row]);
+        }
+
+        printf("\n");
+    }
+
+    free(arr2d_2);
+
+    return 0;
+}
+```
+
+#### Khai báo và giải phóng trên C++:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n = 5;
+    int **arr2d{new int *[n]};
+
+    for (int count = 0; count < n; count++)
+    {
+        arr2d[count] = new int[n];
+    }
+
+    // int (*arr2d_1)[5] = new int[n][5];
+
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n; col++)
+        {
+            arr2d[row][col] = row + col;
+        }
+    }
+
+    cout << "Cac phan tu trong arr2d " << endl;
+
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n; col++)
+        {
+            cout << arr2d[row][col];
+        }
+
+        cout << endl;
+    }
+
+    cout << "Cac phan tu trong arr2d " << endl;
+
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n; col++)
+        {
+            cout << *(*(arr2d + row) + col);
+        }
+
+        cout << endl;
+    }
+
+    cout << "Giai phong bo nho " << endl;
+
+    for (int count = 0; count < n; count++)
+    {
+        delete[] arr2d[count];
+    }
+
+    delete[] arr2d;
+
+    cout << "okela" << endl;
+
+    // 2d tren 1d
+
+    int p_row = 3;
+    int p_col = 5;
+
+    int *p_arr2d = new int[p_row * p_col];
+
+    for (int col = 0; col < p_col; col++)
+    {
+        for (int row = 0; row < p_row; row++)
+        {
+            p_arr2d[col * p_row + row] = col + row;
+        }
+    }
+
+    cout << "Cac phan tu trong p_arr2d " << endl;
+
+    for (int row = 0; row < p_row; row++)
+    {
+        for (int col = 0; col < p_col; col++)
+        {
+            cout << p_arr2d[col * p_row + row];
+        }
+
+        cout << endl;
+    }
+    
+    delete[] p_arr2d;
+
+    return 0;
+}
+```
