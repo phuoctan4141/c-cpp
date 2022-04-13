@@ -82,6 +82,8 @@ int main()
 
         cout << endl;
     }
+    
+    delete[] p_arr2d;
 
     return 0;
 }
