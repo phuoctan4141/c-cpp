@@ -63,15 +63,20 @@ int main()
 }
 
 /*
-Khi thực hiện luồng hiện tại đến cuối f (4), các đối tượng (object) cục bộ bị phá hủy theo hướng ngược lại.
+Khi thực hiện thread hiện tại đến cuối f (4), các đối tượng (object) cục bộ bị phá hủy theo hướng ngược lại.
 Do đó đối tượng thread_guard g(t) bị phá hủy đầu tiên.
 Ngay cả khi do_something_in_current_thread throws an exception, điều này vẫn diễn ra.
 
-Trong ~thread_guard(), đầu tiên kiểm tra xem liệu đối tượng thread có đang joinable() (1) trước khi gọi join() (2).
+Trong ~thread_guard(), kiểm tra đầu tiên xem liệu đối tượng thread có đang joinable() (1) trước khi gọi join() (2).
 Điều này rất quan trọng, bởi vì join() chỉ có thể được gọi một lần cho một luồng thực thi nhất định, 
 vì vậy sẽ là một sai lầm nếu làm như vậy nếu luồng đó đã joined.
 
 Hàm the copy constructor and copy-assignment operators (3) được đánh dấu =delete để đảm bảo rằng chúng không được trình biên dịch
-tự động cung cấp. Copying and assigning object như vậy sẽ rất là nguy hiểm, bởi vì sao đó nó có thể tồn tại lâu hơn phạm vi mà thread
-mà nó đang joining.
+tự động cung cấp. Copying and assigning object như vậy sẽ rất là nguy hiểm,
+bởi vì sao đó nó có thể tồn tại lâu hơn phạm vi mà thread mà nó đang joining.
+
+Nếu bạn không muốn đợi thread kết thúc, bạn có thể tách (detaching) thread ra để tránh các trường hợp exception-safety.
+Điều này phá vỡ sự liên kết của thread với đối tượng std::thread
+và đảm bảo rằng std::terminate() sẽ không được gọi khi đối tượng std::thread bị phá hủy,
+mặc dù thread vẫn đang chạy trong nền.
 */
