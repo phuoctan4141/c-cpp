@@ -67,7 +67,7 @@ Khi thực hiện luồng hiện tại đến cuối f (4), các đối tượng
 Do đó đối tượng thread_guard g(t) bị phá hủy đầu tiên.
 Ngay cả khi do_something_in_current_thread throws an exception, điều này vẫn diễn ra.
 
-Trong ~thread_guard(), kiểm tra đầu tiên xem liệu đối tượng thread có đang joinable() (1) trước khi gọi join() (2).
+Trong ~thread_guard(), đầu tiên kiểm tra xem liệu đối tượng thread có đang joinable() (1) trước khi gọi join() (2).
 Điều này rất quan trọng, bởi vì join() chỉ có thể được gọi một lần cho một luồng thực thi nhất định, 
 vì vậy sẽ là một sai lầm nếu làm như vậy nếu luồng đó đã joined.
 
