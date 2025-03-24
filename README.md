@@ -132,3 +132,11 @@ systemctl daemon-reload
 systemctl restart dnsmasq
 systemctl status dnsmasq
 ```
+
++ Reboot SOM
+
++ Kết nối Camera IP với SOM, kiểm tra IP được cấp cho Camera IP
+
+```sh
+cat /var/lib/misc/dnsmasq.leases
+```
