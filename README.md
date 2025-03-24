@@ -82,8 +82,8 @@ EOF
 
 + Cài đặt DHCP server cho eth1
 
-  ```sh
-  cat > /etc/dnsmasq.conf << EOF
+```sh
+cat > /etc/dnsmasq.conf << EOF
 # Interface configuration
 interface=eth1
 no-dhcp-interface=eth0
@@ -106,7 +106,7 @@ group=root
 pid-file=/var/run/dnsmasq.pid
 except-interface=lo
 EOF
-  ```
+```
 
 ```sh
 cat > /etc/systemd/system/dnsmasq.service << EOF
